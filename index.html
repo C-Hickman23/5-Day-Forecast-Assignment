@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+    <header class="container-fluid bg-info p-3">
+        <h1 class="text-center text-light-emphasis">&#9925; Weather Forecast</h1>   
+    </header>
+
+    <div class="row">
+        <aside class="col-3 card mx-auto m-1 p-3">
+            <label for="location">Enter Location:</label>
+            <input type="text" id="locationInput" class="form-control m-1" placeholder="Search for your city">
+            <button class="btn btn-info m-1" onclick="searchWeather()">Search</button>
+            <div class="overflow-auto m-1">
+                <div id="searchList" class="card bg-secondary">
+                    <button class="btn text-center text-light">London</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="col-8 card mx-auto m-1 p-3">
+            <div class="row">
+                <div class="col-11 card mx-auto m-1 p-3">
+                    <h1 id="currentCity">&#9728 London ()</h1>
+                    <p>Temp: <span id="currentTemp"></span></p>
+                    <p>Wind: <span id="currentWind"></span></p>
+                    <p>Humidity: <span id="currentHumidity"></span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <h2>5-day Forecast:</h2>
+            </div>
+
+            <div class="row" id="fiveDayForecast">
+                <div class="col-2 card mx-auto m-1 p-3 bg-info">
+                    <h5>()</h5>
+                </div>
+
+                <div class="col-2 card mx-auto m-1 p-3 bg-info">
+                    <h5>()</h5>
+                </div>
+
+                <div class="col-2 card mx-auto m-1 p-3 bg-info">
+                    <h5>()</h5>
+                </div>
+
+                <div class="col-2 card mx-auto m-1 p-3 bg-info">
+                    <h5>()</h5>
+                </div>
+
+                <div class="col-2 card mx-auto m-1 p-3 bg-info">
+                    <h5>()</h5>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
