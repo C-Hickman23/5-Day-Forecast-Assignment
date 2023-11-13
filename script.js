@@ -19,21 +19,37 @@ function updateSearchList(city) {
         button.classList.add("btn","text-center","text-light");
         button.id = city;
         button.innerText = city;
-        searchList.appendChild(button);
+        searchList.prepend(button);
         cityList.unshift(city);
         localStorage.setItem("cityList",JSON.stringify(cityList));
-        searchList
+    } else {
+        let temp = cityList[cityList.indexOf(city)];
+        cityList.splice(cityList.indexOf(city), 1);
+        cityList.unshift(temp);
+        initSearchList();
     }
+    Array.from(searchList.children).forEach(search => {
+        search.addEventListener("click", searchListSelection);
+    });
 }
 
 function initSearchList() {
+    searchList.innerHTML = "";
     cityList.forEach(city => {
         let button = document.createElement("button");
         button.classList.add("btn","text-center","text-light");
         button.id = city;
         button.innerText = city;
-        searchList.appendChild(button);
-    })
+        searchList.append(button);
+    });
+    Array.from(searchList.children).forEach(search => {
+        search.addEventListener("click", searchListSelection);
+    });
+}
+
+function searchListSelection(event) {
+    let city = event.currentTarget.innerText;
+    updateForecast(city);
 }
 
 function updateForecast(city) {
@@ -66,4 +82,3 @@ function updateForecast(city) {
 }
 
 updateForecast(cityList[0]);
-initSearchList();
