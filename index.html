@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,16 +19,21 @@
             <input type="text" id="locationInput" class="form-control m-1" placeholder="Search for your city">
             <button class="btn btn-info m-1" onclick="searchWeather()">Search</button>
             <div class="overflow-auto m-1">
-                <div id="searchList" class="card bg-secondary">
-                    <button class="btn text-center text-light">London</button>
-                </div>
+                <div id="searchList" class="card bg-secondary p-1"></div>
             </div>
         </aside>
 
         <main class="col-8 card mx-auto m-1 p-3">
             <div class="row">
                 <div class="col-11 card mx-auto m-1 p-3">
-                    <h1 id="currentCity">&#9728 London ()</h1>
+                    <div class="row">
+                        <div class="col-1">
+                            <img id="currentIcon" src="https://openweathermap.org/img/wn/10n@2x.png" class="icon"></img>
+                        </div>
+                        <div class="col-11">
+                            <h1 id="currentCity">London</h1>
+                        </div>
+                    </div>
                     <p>Temp: <span id="currentTemp"></span></p>
                     <p>Wind: <span id="currentWind"></span></p>
                     <p>Humidity: <span id="currentHumidity"></span></p>
@@ -64,6 +70,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
